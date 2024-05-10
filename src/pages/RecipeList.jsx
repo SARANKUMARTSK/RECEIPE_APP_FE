@@ -1,7 +1,7 @@
 import React from 'react'
 import Topbar from '../components/Topbar'
 import SearchBar from '../components/SearchBar'
-import ReceipiesContainer from '../components/ReceipiesContainer'
+import ReceipiesContainer from '../components/RecipiesContainer'
 
 function ReceipeList({mode,setMode}) {
   return <>

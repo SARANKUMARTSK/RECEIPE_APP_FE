@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import LandingPage from './pages/LandingPage'
-import ReceipeList from './pages/ReceipeList'
+import ReceipeList from './pages/RecipeList'
 import SavedReceipe from './pages/SavedReceipe'
 import DetailedView from './pages/DetailedView'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
@@ -9,7 +9,9 @@ import Login from './auth/Login'
 import SignUp from './auth/SignUp'
 import ForgotPassword from './auth/ForgotPassword'
 import ResetPassword from './auth/ResetPassword'
-import AddReceipe from './pages/AddReceipe'
+import AddReceipe from './pages/AddRecipe'
+export const API_URL = "http://localhost:8500"
+
 function App() {
   let [mode,setMode] = useState(true)
 
@@ -20,11 +22,11 @@ function App() {
             <Route path='login' element={<Login/>}/>
             <Route path='signup' element={<SignUp/>}/>
             <Route path='forgot-password' element={<ForgotPassword/>}/>
-            <Route path='reset-password' element={<ResetPassword/>}/>
+            <Route path='reset-password/:token' element={<ResetPassword/>}/>
             <Route path='landing-page' element={<LandingPage mode={mode} setMode={setMode}/>}/>
             <Route path='receipes' element={<ReceipeList  mode={mode} setMode={setMode}/>}/>
             <Route path='saved-receipes' element={<SavedReceipe mode={mode} setMode={setMode}/>}/>
-            <Route path='detailed-view' element={<DetailedView mode={mode} setMode={setMode}/>}/>
+            <Route path='detailed-view/:id' element={<DetailedView mode={mode} setMode={setMode}/>}/>
             <Route path='add-recipe' element={<AddReceipe mode={mode} setMode={setMode}/>}/>
 
 
@@ -45,3 +47,10 @@ function App() {
 }
 
 export default App
+
+
+
+// landing page - display 
+// search Components backend
+// filter query 
+// Double time adding of saved 

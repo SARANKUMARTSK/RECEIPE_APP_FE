@@ -372,7 +372,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    min-height: 100vh;
+    min-height: 90vh;
     justify-content: center;
-    align-items: center;
 }
