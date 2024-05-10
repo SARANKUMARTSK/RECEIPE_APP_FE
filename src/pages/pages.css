@@ -130,3 +130,123 @@
     border-radius: 10px;
     box-shadow: 0px 0px 5px black;
 }
+
+
+/* Add Recipe Page */
+
+.add-recipe-page{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+.add-recipe-container>h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.add-recipe-form{
+    display: flex;
+    box-shadow: 0px 0px 5px;
+    height: auto;
+    border-radius: 5px;
+}
+@media screen and (max-width:930px) {
+    .add-recipe-form{
+        flex-direction: column;
+    }
+}
+@media screen and (max-width:475px) {
+    .add-recipe-form{
+        flex-direction: column;
+    }
+    .count-container{
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .count-container>input{
+        width: 100%;
+    }
+}
+.add-recipe-left{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    gap: 20px;
+}
+.add-recipe-left>img{
+    height: 200px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px;
+}
+.add-recipe-right{
+    margin: 20px;
+    flex: 1;
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+}
+.upload-image{
+    outline: 2px double red;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0px 0px 5px;
+}
+.add-recipe-right>input{
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: 2px double red;
+    font-weight: 600;
+}
+.food-type-container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.text-area-desc{
+    border: none;
+    outline: 2px double red;
+    min-height: 100px;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 600;
+}
+.count-container{
+    display: flex;
+    gap: 15px;
+}
+.count-container>input{
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: 2px double red;
+    font-weight: 600;
+}
+.ingredients-input-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.ingredients-input-container>textarea{
+    height: 200px;
+    min-width: 300px;
+    border-radius: 5px;
+    padding: 5px;
+    color: gray;
+    font-weight: 900;
+    border: none;
+    outline: 2px double red;
+}
+.submit-create-button{
+    padding: 10px 20px;
+    background-color:orangered;
+    color: white;
+    font-weight: 900;
+    border-radius: 5px;
+}

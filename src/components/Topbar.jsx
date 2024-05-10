@@ -11,14 +11,17 @@ function Topbar({mode,setMode}) {
 
   return <>
   <div className={`topbar ${mode?"bg-dark":"bg-light"}`}>
-    <div onClick={()=>navigate('/landing-page')} className='top-logo'><LunchDiningTwoToneIcon/>RecipeMate</div>
-    <div className='top-nav'>
-      <ul>
-        <li onClick={()=>navigate('/landing-page')} >Home</li>
-        <li onClick={()=>navigate('/receipes')}>Recipes</li>
-      </ul>
+    <div onClick={()=>navigate('/landing-page')} className='top-logo topbar-left'><LunchDiningTwoToneIcon/>RecipeMate</div>
+    <div className='topbar-right'>
+        <div className='top-nav'>
+          <ul>
+            <li onClick={()=>navigate('/landing-page')} >Home</li>
+            <li onClick={()=>navigate('/receipes')}>Recipes</li>
+          </ul>
+        </div>
+        <div className='top-saved'><button onClick={()=>navigate('/saved-receipes')}>Saved Recipes<BookmarkAddOutlinedIcon/></button>&nbsp;<NightlightRoundIcon onClick={()=>setMode(!mode)} /></div>
     </div>
-    <div className='top-saved'><button onClick={()=>navigate('/saved-receipes')}>Saved Recipes<BookmarkAddOutlinedIcon/></button>&nbsp;<NightlightRoundIcon onClick={()=>setMode(!mode)} /></div>
+   
   </div>
   </>
 }
