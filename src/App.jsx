@@ -11,7 +11,7 @@ import ForgotPassword from './auth/ForgotPassword'
 import ResetPassword from './auth/ResetPassword'
 import AddReceipe from './pages/AddRecipe'
 import SearchRecipe from './pages/SearchRecipe'
-export const API_URL = "http://localhost:8500"
+export const API_URL = "https://receipe-app-be.onrender.com"
 
 function App() {
   let [mode,setMode] = useState(true)
