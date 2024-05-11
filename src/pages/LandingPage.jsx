@@ -19,7 +19,11 @@ function LandingPage({mode,setMode}) {
 
 let fetchData = async () => {
     try {
-        let res = await axios.get(`${API_URL}/recipe`);
+        let res = await axios.get(`${API_URL}/recipe`,{
+            headers: {
+              Authorization: `Bearer ${token}` 
+            }
+          });
         let data = res.data.recipe;
 
         let vegRecipes = [];

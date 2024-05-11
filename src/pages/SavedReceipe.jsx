@@ -16,7 +16,11 @@ function SavedReceipe({mode,setMode}) {
   let id = sessionStorage.getItem("userId")
   let savedRecipe = async()=>{
     try {
-      let user = await axios.get(`${API_URL}/user/${id}`)
+      let user = await axios.get(`${API_URL}/user/${id}`,{
+        headers: {
+          Authorization: `Bearer ${token}` 
+        }
+      })
       setData(user.data.user.savedList)
 
     } catch (error) {

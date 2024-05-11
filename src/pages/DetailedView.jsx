@@ -12,7 +12,11 @@ function DetailedView({ mode, setMode }) {
 
     const fetchData = async () => {
         try {
-            const res = await axios.get(`${API_URL}/recipe/${id}`);
+            const res = await axios.get(`${API_URL}/recipe/${id}`,{
+                headers: {
+                  Authorization: `Bearer ${token}` 
+                }
+              });
             console.log(res.data.recipe);
             setData(res.data.recipe);
             setLoading(false); // Set loading to false after data is fetched

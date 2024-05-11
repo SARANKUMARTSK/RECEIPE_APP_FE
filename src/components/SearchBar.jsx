@@ -10,7 +10,11 @@ function SearchBar({mode,setMode}) {
   const handleSearch = (e)=>{
     e.preventDefault();
     if(searchTerm){
-      navigate(`/searchRecipe/${searchTerm}`)
+      navigate(`/searchRecipe/${searchTerm}`,{
+        headers: {
+          Authorization: `Bearer ${token}` 
+        }
+      })
     }else{
       toast.error("Please Fill The Search Term")
     }  

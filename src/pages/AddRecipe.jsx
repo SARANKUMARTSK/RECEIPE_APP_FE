@@ -28,7 +28,11 @@ function AddReceipe({mode,setMode}) {
       let formData = {
         type,calouries,category,description,guide,ingredients,ingredientsCount,memberCount,recipeImage,timeRequired,title
       }
-      let res = await axios.post(`${API_URL}/recipe`,formData)
+      let res = await axios.post(`${API_URL}/recipe`,formData,{
+        headers: {
+          Authorization: `Bearer ${token}` 
+        }
+      })
       toast.success(res.data.message)
       navigate('/landing-page')
     } catch (error) {

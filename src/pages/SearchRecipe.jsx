@@ -15,7 +15,11 @@ function ReceipeList({mode,setMode}) {
 
    let serachedRecipe = async()=>{
     try {
-      let res = await axios.get(`${API_URL}/recipe/searchByTitle/${title}`)
+      let res = await axios.get(`${API_URL}/recipe/searchByTitle/${title}`,{
+        headers: {
+          Authorization: `Bearer ${token}` 
+        }
+      })
       setData(res.data.recipes)
     } catch (error) {
       console.log(error);

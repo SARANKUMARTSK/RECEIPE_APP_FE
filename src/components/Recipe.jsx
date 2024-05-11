@@ -17,7 +17,11 @@ function Receipe({mode,setMode,data}) {
 
   const handleSaved =async(e)=>{
      try {
-      let res = await axios.post(`${API_URL}/user/${userId}/recipe/${e._id}`)
+      let res = await axios.post(`${API_URL}/user/${userId}/recipe/${e._id}`,{
+        headers: {
+          Authorization: `Bearer ${token}` 
+        }
+      })
       toast.success(res.data.message||"Saved Successfully")
      } catch (error) {
       console.log(error);

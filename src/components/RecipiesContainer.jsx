@@ -13,7 +13,11 @@ function ReceipiesContainer() {
  
   const getRecipeData = async()=>{
     try {
-      let res = await axios.get(`${API_URL}/recipe`)
+      let res = await axios.get(`${API_URL}/recipe`,{
+        headers: {
+          Authorization: `Bearer ${token}` 
+        }
+      })
       setData(res.data.recipe)
     } catch (error) {
       console.log(error);
