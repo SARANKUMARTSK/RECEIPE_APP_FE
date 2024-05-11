@@ -1,6 +1,8 @@
 import React from 'react'
-
+import {useNavigate} from 'react-router-dom'
 function ErrorPage() {
+
+  const navigate = useNavigate()
   return <>
   <div className="error-page">
     <div className="error-page-container">
@@ -14,7 +16,7 @@ function ErrorPage() {
           PAGE NOT FOUND !!!
         </div>
         <p>The page you are looking for might have been removed had it's name changed or temporarily unavailable</p>
-        <button className='not-found-button'>GO TO HOMEPAGE</button>
+        <button className='not-found-button' onClick={()=>navigate('/login')} >GO TO HOMEPAGE</button>
     </div>
   </div>
   </>
