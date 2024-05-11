@@ -23,6 +23,7 @@ function AddReceipe({mode,setMode}) {
 
 
   const handleAddRecipe = async(e)=>{
+    let token = sessionStorage.getItem("token");
     e.preventDefault()
     try {
       let formData = {
@@ -30,6 +31,7 @@ function AddReceipe({mode,setMode}) {
       }
       let res = await axios.post(`${API_URL}/recipe`,formData,{
         headers: {
+          'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}` 
         }
       })

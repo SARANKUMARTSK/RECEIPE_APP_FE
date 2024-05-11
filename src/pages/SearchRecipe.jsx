@@ -8,7 +8,7 @@ import { API_URL } from '../App'
 import { useParams } from 'react-router-dom'
 
 function ReceipeList({mode,setMode}) {
-
+  let token = sessionStorage.getItem("token");
   let {title} = useParams()
 
   let [data,setData] = useState([])
@@ -17,6 +17,7 @@ function ReceipeList({mode,setMode}) {
     try {
       let res = await axios.get(`${API_URL}/recipe/searchByTitle/${title}`,{
         headers: {
+          'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}` 
         }
       })

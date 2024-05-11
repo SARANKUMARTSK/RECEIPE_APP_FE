@@ -8,13 +8,14 @@ import axios from 'axios'
 import {API_URL} from '../App'
 
 function ReceipiesContainer() {
-
+  let token = sessionStorage.getItem("token");
   let [data,setData] = useState([])
  
   const getRecipeData = async()=>{
     try {
       let res = await axios.get(`${API_URL}/recipe`,{
         headers: {
+          'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}` 
         }
       })

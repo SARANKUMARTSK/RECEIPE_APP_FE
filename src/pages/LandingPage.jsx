@@ -16,14 +16,17 @@ function LandingPage({mode,setMode}) {
     let [snacks,setSnacks] = useState([])
     let [veverages,setVeverages] = useState([])
     let [dessert,setDessert] = useState([])
+    let token = sessionStorage.getItem("token");
+    
 
 let fetchData = async () => {
     try {
-        let res = await axios.get(`${API_URL}/recipe`,{
+        let res = await axios.get(`${API_URL}/recipe`, {
             headers: {
-              Authorization: `Bearer ${token}` 
+                'Content-Type': 'multipart/form-data',
+                'Authorization': `Bearer ${token}` 
             }
-          });
+        });
         let data = res.data.recipe;
 
         let vegRecipes = [];

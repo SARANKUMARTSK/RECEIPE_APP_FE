@@ -9,11 +9,12 @@ function DetailedView({ mode, setMode }) {
     const [data, setData] = useState({});
     const [loading, setLoading] = useState(true); // Add loading state
     const { id } = useParams();
-
+    let token = sessionStorage.getItem("token");
     const fetchData = async () => {
         try {
             const res = await axios.get(`${API_URL}/recipe/${id}`,{
                 headers: {
+                  'Content-Type': 'multipart/form-data',
                   Authorization: `Bearer ${token}` 
                 }
               });

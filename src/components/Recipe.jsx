@@ -9,7 +9,7 @@ import {API_URL} from '../App'
 import toast from 'react-hot-toast';
 
 function Receipe({mode,setMode,data}) {
-
+  let token = sessionStorage.getItem("token");
   let navigate = useNavigate()
   let userId = sessionStorage.getItem("userId")
 
@@ -19,6 +19,7 @@ function Receipe({mode,setMode,data}) {
      try {
       let res = await axios.post(`${API_URL}/user/${userId}/recipe/${e._id}`,{
         headers: {
+          'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}` 
         }
       })

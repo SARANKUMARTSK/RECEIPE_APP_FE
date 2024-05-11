@@ -8,7 +8,7 @@ import {API_URL} from '../App'
 import toast from 'react-hot-toast';
 function AboutSearch() {
   const navigate = useNavigate()
- 
+  let token = sessionStorage.getItem("token");
   let [searchTerm,setSearchTerm] = useState("")
 
   const handleSearch = (e)=>{

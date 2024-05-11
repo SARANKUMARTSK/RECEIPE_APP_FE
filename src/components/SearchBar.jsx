@@ -6,12 +6,13 @@ import { useNavigate } from 'react-router-dom';
 function SearchBar({mode,setMode}) {
   const navigate = useNavigate()
   let [searchTerm,setSearchTerm] = useState("")
-
+  let token = sessionStorage.getItem("token");
   const handleSearch = (e)=>{
     e.preventDefault();
     if(searchTerm){
       navigate(`/searchRecipe/${searchTerm}`,{
         headers: {
+          'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}` 
         }
       })

@@ -10,7 +10,7 @@ import axios from 'axios';
 import { API_URL } from '../App';
 
 function SavedReceipe({mode,setMode}) {
-
+  let token = sessionStorage.getItem("token");
   let [data,setData] = useState([])
 
   let id = sessionStorage.getItem("userId")
@@ -18,6 +18,7 @@ function SavedReceipe({mode,setMode}) {
     try {
       let user = await axios.get(`${API_URL}/user/${id}`,{
         headers: {
+          'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}` 
         }
       })
