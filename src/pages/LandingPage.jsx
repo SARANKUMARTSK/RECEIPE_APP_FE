@@ -7,41 +7,52 @@ import { API_URL } from '../App'
 import Recipe from '../components/Recipe'
 import ReadMoreOutlinedIcon from '@mui/icons-material/ReadMoreOutlined';
 import '../components/components.css'
+import { useNavigate } from 'react-router-dom'
 
 function LandingPage({mode,setMode}) {
-   
+    const navigate = useNavigate()
     let [veg,setveg] = useState([])
     let [nonVeg,setNonVeg] = useState([])
     let [snacks,setSnacks] = useState([])
     let [veverages,setVeverages] = useState([])
     let [dessert,setDessert] = useState([])
 
-    let fetchData = async()=>{
-        try {
-            let res = await axios.get(`${API_URL}/recipe`)
-            let data = res.data.recipe
-            let veg = data.filter((e)=>{
-                if(e.type==="Veg"){
-                    setveg(e)
-                }
-                if(e.type==="Non-Veg"){
-                    setNonVeg(e)
-                }
-                if(e.type==="Snacks"){
-                    setSnacks(e)
-                }
-                if(e.type==="Veverages"){
-                    setVeverages(e)
-                }
-                if(e.type==="Dessert"){
-                    setDessert(e)
-                }
-            })
-            
-        } catch (error) {
-            console.log(error);
-        }
+let fetchData = async () => {
+    try {
+        let res = await axios.get(`${API_URL}/recipe`);
+        let data = res.data.recipe;
+
+        let vegRecipes = [];
+        let nonVegRecipes = [];
+        let snacksRecipes = [];
+        let beveragesRecipes = [];
+        let dessertRecipes = [];
+
+        data.forEach((e) => {
+            if (e.type === "Veg") {
+                vegRecipes.push(e);
+            } else if (e.type === "Non-Veg") {
+                nonVegRecipes.push(e);
+            } else if (e.type === "Snacks") {
+                snacksRecipes.push(e);
+            } else if (e.type === "Beverages") {
+                beveragesRecipes.push(e);
+            } else if (e.type === "Dessert") {
+                dessertRecipes.push(e);
+            }
+        });
+
+        setveg(vegRecipes.slice(0,4))
+        setNonVeg(nonVegRecipes.slice(0,4))
+        setSnacks(snacksRecipes.slice(0,4))
+        setVeverages(beveragesRecipes.slice(0,4))
+        setDessert(dessertRecipes.slice(0,4))
+
+
+    } catch (error) {
+        console.log(error);
     }
+};
     useEffect(()=>{
        fetchData()
     },[])
@@ -57,7 +68,7 @@ function LandingPage({mode,setMode}) {
         <div className={`feature-container ${mode?"bg-dark":"bg-light"}`}>
         <div className="feature-list">
             <Recipe data={veg}/>
-            <div className="extention">
+            <div onClick={()=>navigate('/receipes')} className="extention">
                     <ReadMoreOutlinedIcon/>
                     <h1> More..</h1> 
             </div>
@@ -69,8 +80,8 @@ function LandingPage({mode,setMode}) {
   </div>
    <div className={`feature-container ${mode?"bg-dark":"bg-light"}`}>
         <div className="feature-list">
-            <Recipe data={veg}/>
-            <div className="extention">
+            <Recipe data={nonVeg}/>
+            <div onClick={()=>navigate('/receipes')} className="extention">
                     <ReadMoreOutlinedIcon/>
                     <h1> More..</h1> 
             </div>
@@ -82,8 +93,8 @@ function LandingPage({mode,setMode}) {
   </div>
    <div className={`feature-container ${mode?"bg-dark":"bg-light"}`}>
         <div className="feature-list">
-            <Recipe data={veg}/>
-            <div className="extention">
+            <Recipe data={snacks}/>
+            <div onClick={()=>navigate('/receipes')} className="extention">
                     <ReadMoreOutlinedIcon/>
                     <h1> More..</h1> 
             </div>
@@ -95,8 +106,8 @@ function LandingPage({mode,setMode}) {
   </div>
    <div className={`feature-container ${mode?"bg-dark":"bg-light"}`}>
         <div className="feature-list">
-            <Recipe data={veg}/>
-            <div className="extention">
+            <Recipe data={veverages}/>
+            <div onClick={()=>navigate('/receipes')} className="extention">
                     <ReadMoreOutlinedIcon/>
                     <h1> More..</h1> 
             </div>
@@ -108,8 +119,8 @@ function LandingPage({mode,setMode}) {
   </div>
    <div className={`feature-container ${mode?"bg-dark":"bg-light"}`}>
         <div className="feature-list">
-            <Recipe data={veg}/>
-            <div className="extention">
+            <Recipe data={dessert}/>
+            <div onClick={()=>navigate('/receipes')} className="extention">
                     <ReadMoreOutlinedIcon/>
                     <h1> More..</h1> 
             </div>

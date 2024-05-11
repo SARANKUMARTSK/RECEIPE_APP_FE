@@ -10,6 +10,7 @@ import SignUp from './auth/SignUp'
 import ForgotPassword from './auth/ForgotPassword'
 import ResetPassword from './auth/ResetPassword'
 import AddReceipe from './pages/AddRecipe'
+import SearchRecipe from './pages/SearchRecipe'
 export const API_URL = "http://localhost:8500"
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             <Route path='saved-receipes' element={<SavedReceipe mode={mode} setMode={setMode}/>}/>
             <Route path='detailed-view/:id' element={<DetailedView mode={mode} setMode={setMode}/>}/>
             <Route path='add-recipe' element={<AddReceipe mode={mode} setMode={setMode}/>}/>
+            <Route path='searchRecipe/:title' element={<SearchRecipe mode={mode} setMode={setMode}/>}/>
 
 
             <Route path='' element={<Navigate to={'/login'}/>}/>

@@ -251,3 +251,11 @@
     font-weight: 900;
     border-radius: 5px;
 }
+.searchRecipeContainer{
+    display: flex;
+    min-height: 100vh;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 10px;
+    justify-content: space-around;
+}

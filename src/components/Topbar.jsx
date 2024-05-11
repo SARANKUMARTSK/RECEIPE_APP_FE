@@ -9,6 +9,8 @@ function Topbar({mode,setMode}) {
 
   const navigate = useNavigate()
 
+  
+
   return <>
   <div className={`topbar ${mode?"bg-dark":"bg-light"}`}>
     <div onClick={()=>navigate('/landing-page')} className='top-logo topbar-left'><LunchDiningTwoToneIcon/>RecipeMate</div>
