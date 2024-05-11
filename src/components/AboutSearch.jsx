@@ -21,6 +21,9 @@ function AboutSearch() {
   }
 
  
+  let role = sessionStorage.getItem("role")
+  
+  
 
 
 
@@ -34,7 +37,10 @@ function AboutSearch() {
         <div className='search-logo'><LocalDiningIcon/></div>
         </div>
         <p>Search any recipe eg., Briyani , Pizza , Burger  </p>
-        <button className='add-recipe-button' onClick={()=>navigate("/add-recipe")}><AddIcon/>Add New Recipe</button>
+        {
+          role==='admin'?<button className='add-recipe-button' onClick={()=>navigate("/add-recipe")}><AddIcon/>Add New Recipe</button>:
+          <button className='add-recipe-button' onClick={()=>{toast.error("You are Not Alowed")}}><AddIcon/>Add New Recipe</button>
+        }
     </div>
   </div>
   </>
