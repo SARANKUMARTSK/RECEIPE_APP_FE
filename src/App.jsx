@@ -20,16 +20,16 @@ function App() {
 
   <BrowserRouter>
         <Routes>
-            <Route path='login' element={<Login/>}/>
-            <Route path='signup' element={<SignUp/>}/>
-            <Route path='forgot-password' element={<ForgotPassword/>}/>
-            <Route path='reset-password/:token' element={<ResetPassword/>}/>
-            <Route path='landing-page' element={<LandingPage mode={mode} setMode={setMode}/>}/>
-            <Route path='receipes' element={<ReceipeList  mode={mode} setMode={setMode}/>}/>
-            <Route path='saved-receipes' element={<SavedReceipe mode={mode} setMode={setMode}/>}/>
-            <Route path='detailed-view/:id' element={<DetailedView mode={mode} setMode={setMode}/>}/>
-            <Route path='add-recipe' element={<AddReceipe mode={mode} setMode={setMode}/>}/>
-            <Route path='searchRecipe/:title' element={<SearchRecipe mode={mode} setMode={setMode}/>}/>
+            <Route path='/login' element={<Login/>}/>
+            <Route path='/signup' element={<SignUp/>}/>
+            <Route path='/forgot-password' element={<ForgotPassword/>}/>
+            <Route path='/reset-password/:token' element={<ResetPassword/>}/>
+            <Route path='/landing-page' element={<LandingPage mode={mode} setMode={setMode}/>}/>
+            <Route path='/receipes' element={<ReceipeList  mode={mode} setMode={setMode}/>}/>
+            <Route path='/saved-receipes' element={<SavedReceipe mode={mode} setMode={setMode}/>}/>
+            <Route path='/detailed-view/:id' element={<DetailedView mode={mode} setMode={setMode}/>}/>
+            <Route path='/add-recipe' element={<AddReceipe mode={mode} setMode={setMode}/>}/>
+            <Route path='/searchRecipe/:title' element={<SearchRecipe mode={mode} setMode={setMode}/>}/>
 
 
             <Route path='' element={<Navigate to={'/login'}/>}/>
